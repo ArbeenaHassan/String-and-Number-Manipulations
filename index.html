@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String and Number Manipulations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>String and Number Manipulations</h2>
+
+        <div class="section">
+            <h3>Find Left-most Vowel</h3>
+            <input type="text" id="inputString" placeholder="Enter a string">
+            <button onclick="findLeftMostVowel()">Find Vowel</button>
+            <p id="vowelPosition"></p>
+        </div>
+
+        <div class="section">
+            <h3>Reverse Number Digits</h3>
+            <input type="number" id="inputNumber" placeholder="Enter a number">
+            <button onclick="reverseNumberDigits()">Reverse Digits</button>
+            <p id="reversedNumber"></p>
+        </div>
+    </div>
+
+    <script>
+        // Function to find the position of the left-most vowel in a string
+        function findLeftMostVowel() {
+            const str = document.getElementById('inputString').value;
+            const vowels = 'aeiouAEIOU';
+            let position = -1;
+
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i])) {
+                    position = i;
+                    break;
+                }
+            }
+
+            document.getElementById('vowelPosition').textContent = position !== -1 ?
+                Left-most vowel at position: ${position} : 'No vowels found';
+        }
+
+        // Function to reverse the digits of a number
+        function reverseNumberDigits() {
+            const num = document.getElementById('inputNumber').value;
+            const reversed = num.toString().split('').reverse().join('');
+            document.getElementById('reversedNumber').textContent = Reversed number: ${reversed};
+        }
+    </script>
+</body>
+</html>
